@@ -97,7 +97,45 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+
+        """
+        What I know:
+        - The robot has one bit of memory: it's light. This signifies one action, turn off light after each swap
+        - The robot can only hold one item and compare to the next (bubble sort?)
+        - The robot can move left or right (traverse the list)
+        """
+
+        # Turn the light on (initiate action/memory bit)
+        self.set_light_on()
+
+        # While the light is on...
+        while self.light_is_on() is True:
+            # Action initiation is over, memory bit spent
+            self.set_light_off()
+            # Do the first swap (From None to first item)
+            self.swap_item()
+
+            # If the robot can move right
+            while self.can_move_right() is True:
+                # Move right and start the checking
+                self.move_right()
+                # If the comparison returns 1, it's greater so swap the items
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    # Action made, initiate a new action/memory bit
+                    self.set_light_on()
+            
+            # While you can move left and the item isn't None
+            # Move left to restart the check
+            while self.can_move_left and self.compare_item() != None:
+                self.move_left()
+            
+            # Swap the item and move right (basic iteration, outside of checks)
+            # This will repeat "bubble sort" style until the whole list is sorted
+            self.swap_item()
+            self.move_right()
+            
+
 
 
 if __name__ == "__main__":
