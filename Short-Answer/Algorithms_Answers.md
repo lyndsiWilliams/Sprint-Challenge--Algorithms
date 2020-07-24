@@ -2,14 +2,13 @@
 
 ## Exercise I
 
-a)
+a) O(n) - There is only one calculation being done
 
 
-b)
+b) O(log(n)) - The outer loop is O(n) but the inner loop cuts the runtime in half
 
 
-c)
+c) O(n) - There is only one calculation being done, the return depends on the value being passed in
 
 ## Exercise II
-
 
